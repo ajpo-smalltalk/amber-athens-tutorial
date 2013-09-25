@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Amber Project</title>
+    <script src="../vendor/amber/support/amber.js"></script>
+    <script src="../vendor/amber/support/requirejs/require.min.js"></script>
+    <script type="text/javascript">
+      require.config({ paths: {
+        'athens-tutorial': 'js', //mapping compiled .js files
+        'athens-tutorial/_source': 'st', //mapping smalltalk source files
+				'athens': '../athens/js',
+				'athens/_source': '../athens/st'
+      }});
+      require(['amber/devel'], function (smalltalk) {
+        smalltalk.defaultAmdNamespace = "athens-tutorial"; //used for all new packages in IDE
+        smalltalk.initialize();
+      });
+			require(['athens/Athens-Core', 'athens/Athens-Core-Matrices', 'athens/Athens-Core-Paints', 'athens/Athens-Core-Paths', 'athens/Athens-HTML', 'athens/Athens-HTML-Matrices', 'athens/Athens-HTML-Paints', 'athens/Athens-HTML-Paths', 'athens/Athens-HTML-Support']);
+			require(['athens-tutorial/Athens-HTML-Tutorial']);
+    </script>
+
+    <!-- Twitter Bootstrap -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/cosmo/bootstrap.min.css" rel="stylesheet">
+    <link href="http://www.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body>
+    <p><a href="http://gsoc2013.esug.org/projects/athen's%20html5%20canvas/proposal-a">Project description</a></p>
+
+    <div id="workspace" style="margin-top: 10px;">
+
+    </div>
+
+		<article>
+      <button onclick="require('amber_vm/smalltalk').Browser._open()">class browser</button>
+    </article>
+  </body>
+</html>

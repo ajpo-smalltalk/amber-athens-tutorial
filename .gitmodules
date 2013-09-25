@@ -1,0 +1,6 @@
+[submodule "vendor/amber"]
+	path = vendor/amber
+	url = git@github.com:amber-smalltalk/amber.git
+[submodule "athens"]
+	path = athens
+	url = git@github.com:matthias-springer/amber-athens-library.git
