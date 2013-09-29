@@ -14,8 +14,17 @@
       require(['amber/devel'], function (smalltalk) {
         smalltalk.defaultAmdNamespace = "athens-tutorial"; //used for all new packages in IDE
         smalltalk.initialize();
-      });
-			require(['athens/Athens-Core', 'athens/Athens-Core-Matrices', 'athens/Athens-Core-Paints', 'athens/Athens-Core-Paths', 'athens/Athens-HTML', 'athens/Athens-HTML-Matrices', 'athens/Athens-HTML-Paints', 'athens/Athens-HTML-Paths', 'athens/Athens-HTML-Support']);
+
+				// set up constructor mapping (not need anymore once Amber#690 is fixed)
+				smalltalk.addPackage("Athens-HTML-Support");
+				smalltalk.wrapClassName("Image", "Athens-HTML-Support", Image, smalltalk.Object);
+				smalltalk.wrapClassName("CanvasElement", "Athens-HTML-Support", HTMLCanvasElement, smalltalk.Object);
+				smalltalk.wrapClassName("CanvasContext2D", "Athens-HTML-Support", CanvasRenderingContext2D, smalltalk.Object);
+				smalltalk.wrapClassName("CanvasGradient", "Athens-HTML-Support", CanvasGradient, smalltalk.Object);
+
+				require(['athens/Athens-Core', 'athens/Athens-Core-Matrices', 'athens/Athens-Core-Paints', 'athens/Athens-Core-Paths', 'athens/Athens-HTML', 'athens/Athens-HTML-Matrices', 'athens/Athens-HTML-Paints', 'athens/Athens-HTML-Paths', 'athens/Athens-HTML-Support'])
+		});
+
 			require(['athens-tutorial/Athens-HTML-Tutorial']);
     </script>
 
